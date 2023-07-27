@@ -14,8 +14,7 @@ const DisplayConnection = (props) => {
          {stops.map((s) => (
            <CardContainer key={s.title}>
              <Typography variant="body1" > {s.title}</Typography>
-               <Typography variant="body1" >{s.departures.join(", ")}</Typography>
-          
+            <Typography variant="body1" >{s.departures.join(", ")}</Typography>
           </CardContainer>
         ))}
       </Content>
