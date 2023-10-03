@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Wrapper, Header, Content, CardContainer, Footer } from './style';
 import { Button, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { stopList } from '../data';
-
+import XUIPageHeader from '@xero/xui/react/pageheader';
 const AddConnection = ({ onAddConnection, goBack }) => {
   
   const [title, setTitle] = useState("");
@@ -24,7 +24,8 @@ const AddConnection = ({ onAddConnection, goBack }) => {
 
   return (
     <Wrapper>
-      <Header><Typography variant="h4" component="h5"> Add New connection </Typography></Header>
+     <XUIPageHeader title="New Connection" />
+
         <Content>
         
           <TextField
@@ -72,6 +73,7 @@ const AddConnection = ({ onAddConnection, goBack }) => {
         <Footer>
         <Button onClick={goBack} variant="contained" color='secondary'>Back</Button>
         <Button onClick={handleSubmit} variant="contained" color='secondary'>Save</Button>
+       
         </Footer>
 
     </Wrapper>

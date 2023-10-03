@@ -1,6 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { Wrapper, Header, Content, CardContainer, Footer } from './style';
 import { Connection, Stop } from '../data';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 
 const DisplayConnection = (props) => {
 
@@ -9,7 +10,8 @@ const DisplayConnection = (props) => {
   
   return (
      <Wrapper>
-      <Header>{connection.title}</Header>
+     <XUIPageHeader title={connection.title} />
+
       <Content>
          {stops.map((s) => (
            <CardContainer key={s.title}>

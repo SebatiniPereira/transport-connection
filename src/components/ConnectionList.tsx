@@ -2,6 +2,9 @@ import React from 'react';
 import { CardContainer, Content, Footer, Header, Wrapper } from './style';
 import { Button, Typography } from '@mui/material';
 import { Connection } from '../data';
+import XUIButton from '@xero/xui/react/button';
+import XUIPanel, { XUIPanelSection } from '@xero/xui/react/panel';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 
 function ConnectionList(props) {
 
@@ -9,20 +12,20 @@ function ConnectionList(props) {
 
   return (
     <Wrapper>
-      <Header>
-        <Typography variant="h4" component="h5"> My Commute List </Typography>
-      </Header>
+            <XUIPageHeader title="My Commute List" />
 
-      <Content>
+      <XUIPanel style={{margin:'10px'}}>
          {connections.map((connection) => (
-           <CardContainer key={connection.title} onClick={() => props.goToConnection(connection.title)}>
-             <label>{connection.title}</label>
-          </CardContainer>
+           <XUIPanelSection style={{height:'50px'}} key={connection.title} onClick={() => props.goToConnection(connection.title)}>
+             <label>{connection.title} </label>
+          </XUIPanelSection>
         ))}
-      </Content>
+      </XUIPanel>
 
       <Footer>
-        <Button onClick={props.goToAddConnection} variant="contained" color='secondary'>Add Connection</Button>
+         <XUIButton className="xui-margin-right-small" variant="main" onClick={props.goToAddConnection}>
+          Add Connection
+        </XUIButton>
       </Footer>
 
     </Wrapper>
