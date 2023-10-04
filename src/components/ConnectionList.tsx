@@ -1,18 +1,18 @@
-import React from 'react';
-import { CardContainer, Content, Footer, Header, Wrapper } from './style';
-import { Button, Typography } from '@mui/material';
-import { Connection } from '../data';
+import { Footer, Wrapper } from './style';
 import XUIButton from '@xero/xui/react/button';
 import XUIPanel, { XUIPanelSection } from '@xero/xui/react/panel';
 import XUIPageHeader from '@xero/xui/react/pageheader';
+import { useSelector } from 'react-redux';
+import { allReducers } from '../reducers';
 
 function ConnectionList(props) {
-
-  let connections: Connection[] = props.connections;
-
+ let connections = useSelector((state:allReducers) => {
+    return state.connection;
+ });
+  
   return (
     <Wrapper>
-            <XUIPageHeader title="My Commute List" />
+    <XUIPageHeader title="My Commute List" />
 
       <XUIPanel style={{margin:'10px'}}>
          {connections.map((connection) => (
